@@ -1,1 +1,1 @@
-export * from "./Gradient";
+export * from "./InteractiveGradient";

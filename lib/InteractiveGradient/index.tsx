@@ -1,6 +1,7 @@
 import {
   CSSProperties,
   FC,
+  PropsWithChildren,
   useCallback,
   useEffect,
   useRef,
@@ -15,7 +16,15 @@ type GradientCoordinates = {
   tgY: number;
 };
 
-export const Gradient: FC = () => {
+export type InteractiveGradientProps = {
+  size: string;
+  float?: boolean;
+  morph?: boolean;
+};
+
+export const InteractiveGradient: FC<
+  PropsWithChildren<InteractiveGradientProps>
+> = ({ float, morph, size, children }) => {
   const rootEl = useRef<HTMLDivElement | null>(null);
   const [coordinates, setCoordinates] = useState<GradientCoordinates>({
     curX: 0,
@@ -27,8 +36,8 @@ export const Gradient: FC = () => {
   const updateMouseCoordinates = useCallback((event: MouseEvent) => {
     setCoordinates((prevCoordinates) => ({
       ...prevCoordinates,
-      tgX: event.clientX,
-      tgY: event.clientY,
+      tgX: event.offsetX,
+      tgY: event.offsetY,
     }));
   }, []);
 
@@ -76,7 +85,27 @@ export const Gradient: FC = () => {
         } as CSSProperties
       }
     >
-      <div ref={rootEl} className={styles.gradientBg}>
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: 100,
+        }}
+      >
+        {children}
+      </div>
+      <div
+        ref={rootEl}
+        className={`${styles.gradientBg} ${float ? styles.float : ""} ${
+          morph ? styles.morph : ""
+        }`}
+        style={{
+          width: size,
+          height: size,
+        }}
+      >
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">

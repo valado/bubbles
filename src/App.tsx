@@ -1,8 +1,21 @@
 import { FC } from "react";
-import { Gradient } from "../lib/Gradient";
+import { InteractiveGradient } from "../lib/InteractiveGradient";
 
 const App: FC = () => {
-  return <Gradient />;
+  return (
+    <div
+      style={{
+        top: "50%",
+        left: "50%",
+        position: "absolute",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      <InteractiveGradient size={"500px"} morph float>
+        <span>test</span>
+      </InteractiveGradient>
+    </div>
+  );
 };
 
 export default App;
