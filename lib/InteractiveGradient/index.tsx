@@ -8,6 +8,7 @@ import {
   useState,
 } from "react";
 import styles from "./styles.module.css";
+import { stripRGB } from "./utils";
 
 type GradientCoordinates = {
   curX: number;
@@ -20,11 +21,32 @@ export type InteractiveGradientProps = {
   size: string;
   float?: boolean;
   morph?: boolean;
+  colorBG1?: string;
+  colorBG2?: string;
+  color1?: string;
+  color2?: string;
+  color3?: string;
+  color4?: string;
+  color5?: string;
+  colorInteractive?: string;
 };
 
 export const InteractiveGradient: FC<
   PropsWithChildren<InteractiveGradientProps>
-> = ({ float, morph, size, children }) => {
+> = ({
+  float,
+  morph,
+  size,
+  children,
+  colorBG1 = "rgb(108, 0, 162)",
+  colorBG2 = "rgb(0, 17, 82)",
+  color1 = "rgb(18, 113, 255)",
+  color2 = "rgb(221, 74, 255)",
+  color3 = "rgb(100, 220, 255)",
+  color4 = "rgb(200, 50, 50)",
+  color5 = "rgb(180, 180, 50)",
+  colorInteractive = "rgb(140, 100, 255)",
+}) => {
   const rootEl = useRef<HTMLDivElement | null>(null);
   const [coordinates, setCoordinates] = useState<GradientCoordinates>({
     curX: 0,
@@ -86,15 +108,15 @@ export const InteractiveGradient: FC<
     <div
       style={
         {
-          "--color-bg1": "rgb(108, 0, 162)",
-          "--color-bg2": "rgb(0, 17, 82)",
-          "--color1": "18, 113, 255",
-          "--color2": "221, 74, 255",
-          "--color3": "100, 220, 255",
-          "--color4": "200, 50, 50",
-          "--color5": "180, 180, 50",
-          "--color-interactive": "140, 100, 255",
-          "--circle-size": "80%",
+          "--color-bg1": colorBG1,
+          "--color-bg2": colorBG2,
+          "--color1": stripRGB(color1),
+          "--color2": stripRGB(color2),
+          "--color3": stripRGB(color3),
+          "--color4": stripRGB(color4),
+          "--color5": stripRGB(color5),
+          "--color-interactive": stripRGB(colorInteractive),
+          "--circle-size": "40%",
         } as CSSProperties
       }
     >
