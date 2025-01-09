@@ -23,3 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci --legacy-peer-deps
       - run: npm run build
+      - run: echo always-auth=true >> .npmrc
+      - run: echo _auth=${{ env.NPM_TOKEN }} >> .npmrc
+      - run: echo email=vld@mail.com >> .npmrc
+      - run: npm run publish
