@@ -11,7 +11,7 @@ const App: FC = () => {
           position: "absolute",
         }}
       >
-        <InteractiveGradient size={"85vw"} morph />
+        <InteractiveGradient size={"80vw"} morph />
       </div>
 
       <div
@@ -22,7 +22,7 @@ const App: FC = () => {
           transform: "translate(50%, -50%)",
         }}
       >
-        <InteractiveGradient size={"10vw"} morph float>
+        <InteractiveGradient size={"15vw"} morph float>
           <span
             style={{ color: "white", fontWeight: "bold", userSelect: "none" }}
           >

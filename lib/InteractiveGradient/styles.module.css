@@ -73,6 +73,10 @@
   animation: morph 8s ease-in-out infinite;
 }
 
+.both {
+  animation: float 6s ease-in-out infinite, morph 8s ease-in-out infinite;
+}
+
 .gradientBg {
   overflow: hidden;
   background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));

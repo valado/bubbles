@@ -69,6 +69,19 @@ export const InteractiveGradient: FC<
     };
   }, [updateMouseCoordinates, rootEl]);
 
+  const getAnimationClass = () => {
+    if (float && morph) {
+      return styles.both;
+    }
+    if (float) {
+      return styles.float;
+    }
+    if (morph) {
+      return styles.morph;
+    }
+    return "";
+  };
+
   return (
     <div
       style={
@@ -86,26 +99,25 @@ export const InteractiveGradient: FC<
       }
     >
       <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 100,
-        }}
-      >
-        {children}
-      </div>
-      <div
         ref={rootEl}
-        className={`${styles.gradientBg} ${float ? styles.float : ""} ${
-          morph ? styles.morph : ""
-        }`}
+        className={`${styles.gradientBg} ${getAnimationClass()}`}
         style={{
           width: size,
           height: size,
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 100,
+            textAlign: "center",
+          }}
+        >
+          {children}
+        </div>
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">
