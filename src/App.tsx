@@ -6,27 +6,26 @@ const App: FC = () => {
     <>
       <div
         style={{
-          top: "-50vh",
-          right: "-30vw",
+          top: "-150px",
+          right: "-150px",
           position: "absolute",
         }}
       >
-        <InteractiveGradient size={"80vw"} morph />
+        <InteractiveGradient size={"800px"} morph />
       </div>
 
       <div
         style={{
           position: "absolute",
-          top: "50%",
-          right: "50%",
-          transform: "translate(50%, -50%)",
+          bottom: "10%",
+          left: "10%",
         }}
       >
-        <InteractiveGradient size={"15vw"} morph float>
+        <InteractiveGradient size={"150px"} morph float>
           <span
             style={{ color: "white", fontWeight: "bold", userSelect: "none" }}
           >
-            Dynamic Gradient
+            DYNAMIC GRADIENT
           </span>
         </InteractiveGradient>
       </div>
