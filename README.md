@@ -2,7 +2,7 @@
 
 Useful for interactive background elements
 
-<img src="./public/gradient.png" width="400">
+<img src="https://raw.githubusercontent.com/valado/dynamic-gradient/main/public/gradient.png" width="400">
 
 ## Demo
 
