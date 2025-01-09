@@ -1,6 +1,8 @@
 # Animated Morphing Gradients Background
 
-Usefull for interactive background elements
+Useful for interactive background elements
+
+<img src="./public/gradient.png" width="400">
 
 ## Demo
 
