@@ -3,7 +3,12 @@
   "private": false,
   "repository": "https://github.com/valado/dynamic-gradient",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.0.5",
+  "keywords": [
+    "react",
+    "blob",
+    "gradient"
+  ],
   "type": "module",
   "main": "dist/react-dynamic-gradient.js",
   "types": "dist/main.d.ts",
