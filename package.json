@@ -1,7 +1,8 @@
 {
   "name": "react-dynamic-gradient",
   "private": false,
-  "version": "1.0.2",
+  "repository": "https://github.com/valado/dynamic-gradient",
+  "version": "1.0.3",
   "type": "module",
   "main": "dist/react-dynamic-gradient.js",
   "types": "dist/main.d.ts",
